@@ -16,7 +16,7 @@ class RootViewModel {
         let conf = NSURLSessionConfiguration.defaultSessionConfiguration()
         conf.requestCachePolicy = .ReloadIgnoringLocalCacheData
         NSURLSession(configuration: conf).dataTaskWithURL(URL) { [weak self] (data, response, error) -> Void in
-            guard let data = data where error == nil && self != nil else {
+            guard let data = data where error == nil else {
                 print("error: \(error?.localizedDescription)")
                 return
             }

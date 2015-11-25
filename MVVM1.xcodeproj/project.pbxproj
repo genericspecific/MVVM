@@ -26,6 +26,8 @@
 		31C11D231C026862004FA249 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D211C026862004FA249 /* DetailViewModel.swift */; };
 		31C11D251C026ABC004FA249 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D241C026ABC004FA249 /* DetailViewController.swift */; };
 		31C11D261C026ABC004FA249 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D241C026ABC004FA249 /* DetailViewController.swift */; };
+		EF07A3221C0620BC002B238B /* RootModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A3211C0620BC002B238B /* RootModelItem.swift */; };
+		EF07A3231C0620BC002B238B /* RootModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A3211C0620BC002B238B /* RootModelItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,7 @@
 		31C11D1B1C026753004FA249 /* DetailModelService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailModelService.swift; sourceTree = "<group>"; };
 		31C11D211C026862004FA249 /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		31C11D241C026ABC004FA249 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EF07A3211C0620BC002B238B /* RootModelItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModelItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,7 @@
 			children = (
 				31C11D141C01C1CC004FA249 /* RootModelService.swift */,
 				31C11D0F1C01B5A5004FA249 /* RootModel.swift */,
+				EF07A3211C0620BC002B238B /* RootModelItem.swift */,
 				31C11D111C01B5CF004FA249 /* RootViewModel.swift */,
 				31C11CEF1C01B4A1004FA249 /* RootViewController.swift */,
 			);
@@ -252,6 +256,7 @@
 				31C11D151C01C1CC004FA249 /* RootModelService.swift in Sources */,
 				31C11D101C01B5A5004FA249 /* RootModel.swift in Sources */,
 				31C11CF01C01B4A1004FA249 /* RootViewController.swift in Sources */,
+				EF07A3221C0620BC002B238B /* RootModelItem.swift in Sources */,
 				31C11D121C01B5CF004FA249 /* RootViewModel.swift in Sources */,
 				31C11CEE1C01B4A1004FA249 /* AppDelegate.swift in Sources */,
 				31C11D221C026862004FA249 /* DetailViewModel.swift in Sources */,
@@ -262,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF07A3231C0620BC002B238B /* RootModelItem.swift in Sources */,
 				31C11D1A1C02657C004FA249 /* DetailModel.swift in Sources */,
 				31C11D031C01B4A1004FA249 /* MVVM1Tests.swift in Sources */,
 				31C11D261C026ABC004FA249 /* DetailViewController.swift in Sources */,

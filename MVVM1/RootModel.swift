@@ -2,33 +2,23 @@ import Foundation
 
 struct RootModel {
     
-    enum RootError: ErrorType {
-        case BadJSON
-    }
+    let items: [RootModelItem]
     
-    let id: Int
-    let title: String
-    let URLString: String
-    
-    static func getAll(completion: [RootModel] -> Void) {
-        RootModelService.getAll() { raw in
-            let model: [RootModel]
-            do {
-                model = try raw.map( RootModel.dictToRootModel )
-            } catch {
-                model = []
-            }
+    static func get(completion: RootModel? -> Void) {
+        RootModelService.getAll() { dict in
+            let model = RootModel(dict: dict)
             completion(model)
         }
     }
+}
+
+extension RootModel {
     
-    static func dictToRootModel(dict: NSDictionary) throws -> RootModel {
-        guard let
-            id = dict["id"] as? Int,
-            title = dict["title"] as? String,
-            URLString = dict["thumbURL"] as? String
-        else { throw RootError.BadJSON }
+    init?(dict: NSDictionary) {
+        guard let itemsArray = dict["items"] as? [NSDictionary] else {
+            return nil
+        }
         
-        return RootModel(id: id, title: title, URLString: URLString)
+        self.items = itemsArray.flatMap{ RootModelItem.init(dict: $0) }
     }
 }
