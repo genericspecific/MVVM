@@ -7,7 +7,7 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = RootViewModel.title
         model = RootViewModel.getAll()
         tableView.dataSource = self
     }
@@ -32,7 +32,7 @@ extension RootViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         let item = model[indexPath.row]
         cell.textLabel?.text = item.title
-        
+        cell.imageView?.image = item.image
         return cell
     }
     
@@ -44,11 +44,3 @@ extension RootViewController: UITableViewDataSource {
         return 1
     }
 }
-//
-//
-//extension RootViewController: UITableViewDelegate {
-//    
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let vc = 
-//    }
-//}

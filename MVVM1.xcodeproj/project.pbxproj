@@ -448,6 +448,7 @@
 				31C11D091C01B4A1004FA249 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		31C11D0A1C01B4A1004FA249 /* Build configuration list for PBXNativeTarget "MVVM1Tests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +457,7 @@
 				31C11D0C1C01B4A1004FA249 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

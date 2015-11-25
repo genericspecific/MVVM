@@ -12,8 +12,9 @@ struct DetailViewModel {
         content = model.content
         imageURL = NSURL(string: model.imageURLString)!
         
-        let data = NSData(contentsOfURL: imageURL)
-        image = UIImage(data: data!)
+        if let data = NSData(contentsOfURL: imageURL) {
+            image = UIImage(data: data)
+        }
     }
     
     static func get(id: Int) throws -> DetailViewModel {
