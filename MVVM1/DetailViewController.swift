@@ -6,13 +6,26 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var contentLabel: UILabel!
     
     var modelId: Int?
-    var model: DetailViewModel?
+    var model: DetailViewModel? {
+        didSet {
+            guard let model = model else { return }
+            
+            if model.loading {
+                model.update = { [weak self] in
+                    self?.imageView.image = model.image
+                    self?.model?.update = nil
+                }
+            } else {
+                model.update = nil
+            }
+        }
+    }
     
     override func viewWillAppear(animated: Bool) {
         guard let model = model else { return }
         
         title = model.title
-        imageView.image = model.image
         contentLabel.text = model.content
+        imageView.image = model.image
     }
 }

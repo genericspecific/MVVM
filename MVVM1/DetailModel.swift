@@ -21,7 +21,21 @@ struct DetailModel {
         return DetailModel(id: id, title: title, content: content, imageURLString: imageURLString)
     }
     
-    static func get(id: Int) throws -> DetailModel {
-        return try dictToDetailModel(DetailModelService.get(id))
+    static func get(id: Int, completion: DetailModel? -> Void) {
+        DetailModelService.get(id) { dict in
+            guard let dict = dict else {
+                completion(nil)
+                return
+            }
+            
+            let model:DetailModel?
+            do {
+                try model = DetailModel.dictToDetailModel(dict)
+            } catch {
+                model = nil
+            }
+            
+            completion(model)
+        }
     }
 }

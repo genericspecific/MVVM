@@ -2,11 +2,15 @@ import Foundation
 
 struct RootModelService {
     
-    static func getAll() throws -> [NSDictionary] {
+    static func getAll(completion: [NSDictionary] -> Void) {
         let path = NSBundle.mainBundle().pathForResource("root", ofType: "json")!
         let url = NSURL(fileURLWithPath: path)
         let data = NSData(contentsOfURL: url)!
         
-        return try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [NSDictionary]
+        do {
+            try completion(NSJSONSerialization.JSONObjectWithData(data, options: []) as! [NSDictionary])
+        } catch {
+            completion([])
+        }
     }
 }

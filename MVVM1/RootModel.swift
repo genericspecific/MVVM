@@ -10,23 +10,16 @@ struct RootModel {
     let title: String
     let URLString: String
     
-    static func getAll() -> [RootModel] {
-        let raw: [NSDictionary]
-        do {
-            raw = try RootModelService.getAll()
-        } catch {
-            print("Couldnt load JSON")
-            raw = []
+    static func getAll(completion: [RootModel] -> Void) {
+        RootModelService.getAll() { raw in
+            let model: [RootModel]
+            do {
+                model = try raw.map( RootModel.dictToRootModel )
+            } catch {
+                model = []
+            }
+            completion(model)
         }
-        
-        let model: [RootModel]
-        do {
-            try model = raw.map( RootModel.dictToRootModel )
-        } catch {
-            print("Model creation Failed")
-            model = []
-        }
-        return model
     }
     
     static func dictToRootModel(dict: NSDictionary) throws -> RootModel {
