@@ -1,47 +1,42 @@
 import UIKit
 
 class RootViewModel {
-    let id: Int
-    let title: String
-    let URL: NSURL
-    var loading: Bool = true
-    var image: UIImage?
-    var update: (() -> Void)?
     
-    init(model: RootModel) {
-        id = model.id
-        title = "\(id). \(model.title.uppercaseString)"
-        URL = NSURL(string: model.URLString)!
-        
-        let conf = NSURLSessionConfiguration.defaultSessionConfiguration()
-        conf.requestCachePolicy = .ReloadIgnoringLocalCacheData
-        NSURLSession(configuration: conf).dataTaskWithURL(URL) { [weak self] (data, response, error) -> Void in
-            guard let data = data where error == nil else {
-                print("error: \(error?.localizedDescription)")
-                return
-            }
+    static let loadingLabel = "Loading..."
+    
+    var model: RootModel? {
+        didSet {
+            loading = false
             
-            self?.loading = false
-            self?.image = UIImage(data: data)
-            self?.update?()
-        }.resume()
-        
-        update?()
-    }
-    
-    static func getAll(completion: [RootViewModel] -> Void) {
-        return RootModel.getAll() { model in
-            completion(model.map( RootViewModel.init ))
+            guard model != oldValue else { return }
+            
+            title = model?.title ?? ""
+            items = model?.items.flatMap{ RootViewModelItem.init(model: $0) } ?? []
+            update?()
         }
     }
+    var title = RootViewModel.loadingLabel
+    var items = [RootViewModelItem]()
+    var update: (() -> Void)?
+    var loading = true
     
-    static func getDetail(id: Int, completion: DetailViewModel? -> Void) {
-        DetailViewModel.get(id) { viewModel in
-            completion(viewModel)
-        }
+    init(title: String, items: [RootViewModelItem]) {
+        self.items = items
     }
     
-    static var title: String {
-        return "Overview"
+    init(items: [RootViewModelItem]) {
+        self.items = items
+    }
+    
+    func getDetail(id: Int) -> DetailViewModel? {
+        return DetailViewModel.get(id)
+    }
+    
+    static func get() -> RootViewModel {
+        let viewModel = RootViewModel(title: "", items: [])
+        RootModel.get() { model in
+            viewModel.model = model
+        }
+        return viewModel
     }
 }

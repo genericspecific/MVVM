@@ -1,44 +1,63 @@
 import UIKit
 
 class DetailViewModel {
-    let title: String
-    let content: String
-    let imageURL: NSURL
+    
+    static let loadingLabel = "Loading..."
+    
+    var title: String = DetailViewModel.loadingLabel
+    var content: String
+    var imageURL: NSURL? {
+        didSet {
+            guard let url = imageURL else {
+                self.image = nil
+                self.update?()
+                return
+            }
+            
+            NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration()).dataTaskWithURL(url) { [weak self] (data, response, error) -> Void in
+                self?.loading = false
+                
+                guard let data = data where error == nil && self != nil else {
+                    print("error: \(error?.localizedDescription)")
+                    return
+                }
+                
+                self?.image = UIImage(data: data)
+                self?.update?()
+            }.resume()
+        }
+    }
     var image: UIImage? = nil
     var loading: Bool = true
     var update: (() -> Void)?
-    
-    init(model: DetailModel) {
-        title = model.title
-        content = model.content
-        imageURL = NSURL(string: model.imageURLString)!
-        
-        if let data = NSData(contentsOfURL: imageURL) {
-            image = UIImage(data: data)
-        }
-        
-        let conf = NSURLSessionConfiguration.defaultSessionConfiguration()
-        conf.requestCachePolicy = .ReloadIgnoringLocalCacheData
-        NSURLSession(configuration: conf).dataTaskWithURL(imageURL) { [weak self] (data, response, error) -> Void in
-            guard let data = data where error == nil && self != nil else {
-                print("error: \(error?.localizedDescription)")
-                return
-            }
+    var model: DetailModel? {
+        didSet {
+            guard model != oldValue else { return }
             
-            self?.loading = false
-            self?.image = UIImage(data: data)
-            self?.update?()
-        }.resume()
+            self.title = model?.title ?? ""
+            self.content = model?.content ?? ""
+            self.imageURL = NSURL(string: model?.mainURLString ?? "")
+            self.update?()
+        }
     }
     
-    static func get(id: Int, completion: DetailViewModel? -> Void) {
+    init(title: String, content: String, imageURLString: String) {
+        self.title = title
+        self.content = content
+        imageURL = NSURL(string: imageURLString)
+    }
+    
+    deinit {
+        
+    }
+    
+    static func get(id: Int) -> DetailViewModel {
+        let viewModel = DetailViewModel(title: "", content: "", imageURLString: "")
+        
         DetailModel.get(id) { model in
-            guard let model = model else {
-                completion(nil)
-                return
-            }
-            
-            completion(DetailViewModel(model: model))
+            viewModel.model = model
         }
+            
+        return viewModel
     }
 }

@@ -4,28 +4,45 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    var modelId: Int?
-    var model: DetailViewModel? {
+    var viewModel: DetailViewModel! {
         didSet {
-            guard let model = model else { return }
+            guard let viewModel = viewModel where isViewLoaded() else { return }
             
-            if model.loading {
-                model.update = { [weak self] in
-                    self?.imageView.image = model.image
-                    self?.model?.update = nil
-                }
-            } else {
-                model.update = nil
-            }
+            updateWithViewModel(viewModel)
         }
     }
     
     override func viewWillAppear(animated: Bool) {
-        guard let model = model else { return }
+        guard let viewModel = viewModel else { return }
         
-        title = model.title
-        contentLabel.text = model.content
-        imageView.image = model.image
+        updateWithViewModel(viewModel)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel?.update = nil
+        viewModel = nil
+        imageView.image = nil
+    }
+    
+    func updateWithViewModel(viewModel: DetailViewModel) {
+        title = viewModel.title
+        contentLabel.text = viewModel.content
+        imageView.image = viewModel.image
+        if viewModel.loading {
+            viewModel.update = { [weak self] in
+                NSOperationQueue.mainQueue().addOperationWithBlock{
+                    self?.updateWithViewModel(viewModel)
+                }
+            }
+            spinner.hidden = false
+            spinner.startAnimating()
+        } else {
+            viewModel.update = nil
+            spinner.hidden = true
+            spinner.stopAnimating()
+        }
     }
 }

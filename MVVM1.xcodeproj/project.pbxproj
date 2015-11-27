@@ -17,17 +17,18 @@
 		31C11D101C01B5A5004FA249 /* RootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D0F1C01B5A5004FA249 /* RootModel.swift */; };
 		31C11D121C01B5CF004FA249 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D111C01B5CF004FA249 /* RootViewModel.swift */; };
 		31C11D151C01C1CC004FA249 /* RootModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D141C01C1CC004FA249 /* RootModelService.swift */; };
-		31C11D171C02630F004FA249 /* item1.json in Resources */ = {isa = PBXBuildFile; fileRef = 31C11D161C02630F004FA249 /* item1.json */; };
-		31C11D191C02657C004FA249 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D181C02657C004FA249 /* DetailModel.swift */; };
-		31C11D1A1C02657C004FA249 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D181C02657C004FA249 /* DetailModel.swift */; };
-		31C11D1C1C026753004FA249 /* DetailModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D1B1C026753004FA249 /* DetailModelService.swift */; };
-		31C11D1D1C026753004FA249 /* DetailModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D1B1C026753004FA249 /* DetailModelService.swift */; };
 		31C11D221C026862004FA249 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D211C026862004FA249 /* DetailViewModel.swift */; };
 		31C11D231C026862004FA249 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D211C026862004FA249 /* DetailViewModel.swift */; };
 		31C11D251C026ABC004FA249 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D241C026ABC004FA249 /* DetailViewController.swift */; };
 		31C11D261C026ABC004FA249 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D241C026ABC004FA249 /* DetailViewController.swift */; };
-		EF07A3221C0620BC002B238B /* RootModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A3211C0620BC002B238B /* RootModelItem.swift */; };
-		EF07A3231C0620BC002B238B /* RootModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A3211C0620BC002B238B /* RootModelItem.swift */; };
+		EF07A3221C0620BC002B238B /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A3211C0620BC002B238B /* DetailModel.swift */; };
+		EF07A3251C071D23002B238B /* RootViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A3241C071D23002B238B /* RootViewModelItem.swift */; };
+		EF2AB5921C073CA0007F899B /* RootModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D141C01C1CC004FA249 /* RootModelService.swift */; };
+		EF2AB5931C073CA0007F899B /* RootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D0F1C01B5A5004FA249 /* RootModel.swift */; };
+		EF2AB5941C073CA0007F899B /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A3211C0620BC002B238B /* DetailModel.swift */; };
+		EF2AB5951C073CA0007F899B /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11D111C01B5CF004FA249 /* RootViewModel.swift */; };
+		EF2AB5961C073CA0007F899B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11CEF1C01B4A1004FA249 /* RootViewController.swift */; };
+		EF2AB5971C073CA0007F899B /* RootViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A3241C071D23002B238B /* RootViewModelItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +56,10 @@
 		31C11D0F1C01B5A5004FA249 /* RootModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModel.swift; sourceTree = "<group>"; };
 		31C11D111C01B5CF004FA249 /* RootViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		31C11D141C01C1CC004FA249 /* RootModelService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModelService.swift; sourceTree = "<group>"; };
-		31C11D161C02630F004FA249 /* item1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = item1.json; sourceTree = "<group>"; };
-		31C11D181C02657C004FA249 /* DetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
-		31C11D1B1C026753004FA249 /* DetailModelService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailModelService.swift; sourceTree = "<group>"; };
 		31C11D211C026862004FA249 /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		31C11D241C026ABC004FA249 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		EF07A3211C0620BC002B238B /* RootModelItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModelItem.swift; sourceTree = "<group>"; };
+		EF07A3211C0620BC002B238B /* DetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		EF07A3241C071D23002B238B /* RootViewModelItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewModelItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				31C11D0D1C01B4BA004FA249 /* root.json */,
-				31C11D161C02630F004FA249 /* item1.json */,
 				31C11CED1C01B4A1004FA249 /* AppDelegate.swift */,
 				31C11D1F1C02680D004FA249 /* Root */,
 				31C11D201C026815004FA249 /* Detail */,
@@ -129,8 +127,9 @@
 			children = (
 				31C11D141C01C1CC004FA249 /* RootModelService.swift */,
 				31C11D0F1C01B5A5004FA249 /* RootModel.swift */,
-				EF07A3211C0620BC002B238B /* RootModelItem.swift */,
+				EF07A3211C0620BC002B238B /* DetailModel.swift */,
 				31C11D111C01B5CF004FA249 /* RootViewModel.swift */,
+				EF07A3241C071D23002B238B /* RootViewModelItem.swift */,
 				31C11CEF1C01B4A1004FA249 /* RootViewController.swift */,
 			);
 			name = Root;
@@ -139,8 +138,6 @@
 		31C11D201C026815004FA249 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				31C11D1B1C026753004FA249 /* DetailModelService.swift */,
-				31C11D181C02657C004FA249 /* DetailModel.swift */,
 				31C11D211C026862004FA249 /* DetailViewModel.swift */,
 				31C11D241C026ABC004FA249 /* DetailViewController.swift */,
 			);
@@ -230,7 +227,6 @@
 			files = (
 				31C11CF81C01B4A1004FA249 /* LaunchScreen.storyboard in Resources */,
 				31C11D0E1C01B4BA004FA249 /* root.json in Resources */,
-				31C11D171C02630F004FA249 /* item1.json in Resources */,
 				31C11CF51C01B4A1004FA249 /* Assets.xcassets in Resources */,
 				31C11CF31C01B4A1004FA249 /* Main.storyboard in Resources */,
 			);
@@ -251,12 +247,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				31C11D251C026ABC004FA249 /* DetailViewController.swift in Sources */,
-				31C11D1C1C026753004FA249 /* DetailModelService.swift in Sources */,
-				31C11D191C02657C004FA249 /* DetailModel.swift in Sources */,
 				31C11D151C01C1CC004FA249 /* RootModelService.swift in Sources */,
 				31C11D101C01B5A5004FA249 /* RootModel.swift in Sources */,
 				31C11CF01C01B4A1004FA249 /* RootViewController.swift in Sources */,
-				EF07A3221C0620BC002B238B /* RootModelItem.swift in Sources */,
+				EF07A3221C0620BC002B238B /* DetailModel.swift in Sources */,
+				EF07A3251C071D23002B238B /* RootViewModelItem.swift in Sources */,
 				31C11D121C01B5CF004FA249 /* RootViewModel.swift in Sources */,
 				31C11CEE1C01B4A1004FA249 /* AppDelegate.swift in Sources */,
 				31C11D221C026862004FA249 /* DetailViewModel.swift in Sources */,
@@ -267,12 +262,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF07A3231C0620BC002B238B /* RootModelItem.swift in Sources */,
-				31C11D1A1C02657C004FA249 /* DetailModel.swift in Sources */,
+				EF2AB5941C073CA0007F899B /* DetailModel.swift in Sources */,
+				EF2AB5951C073CA0007F899B /* RootViewModel.swift in Sources */,
 				31C11D031C01B4A1004FA249 /* MVVM1Tests.swift in Sources */,
 				31C11D261C026ABC004FA249 /* DetailViewController.swift in Sources */,
-				31C11D1D1C026753004FA249 /* DetailModelService.swift in Sources */,
+				EF2AB5971C073CA0007F899B /* RootViewModelItem.swift in Sources */,
 				31C11D231C026862004FA249 /* DetailViewModel.swift in Sources */,
+				EF2AB5931C073CA0007F899B /* RootModel.swift in Sources */,
+				EF2AB5961C073CA0007F899B /* RootViewController.swift in Sources */,
+				EF2AB5921C073CA0007F899B /* RootModelService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

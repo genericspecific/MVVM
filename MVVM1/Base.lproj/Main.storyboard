@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -39,10 +40,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="MrD-cx-uXF">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MrD-cx-uXF" id="X11-zf-or3">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -51,22 +52,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tbk-zz-xFz">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="Qig-8S-hs8"/>
+                                    <constraint firstAttribute="height" constant="20" id="vrc-aI-hri"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MmK-Or-RWc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="6Uu-Mu-ztx"/>
+                            <constraint firstItem="tbk-zz-xFz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8lE-RJ-dkC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MmK-Or-RWc" secondAttribute="trailing" constant="-20" id="EW4-jo-YWG"/>
+                            <constraint firstItem="tbk-zz-xFz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LQI-yE-jsZ"/>
                             <constraint firstItem="MmK-Or-RWc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Q2q-Z9-xbx"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MmK-Or-RWc" secondAttribute="bottom" id="dea-OF-eDH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Q1-8n-TTQ"/>
                     <connections>
+                        <outlet property="spinner" destination="tbk-zz-xFz" id="bj4-FJ-RPU"/>
                         <outlet property="tableView" destination="MmK-Or-RWc" id="wly-Q6-YR8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="102" y="339"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Dnd-68-jpA">
@@ -105,14 +117,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="88a-j0-oGI">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="JLs-eo-4QO"/>
+                                    <constraint firstAttribute="height" constant="20" id="roP-sk-cSN"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="cEI-Et-t3R" secondAttribute="trailing" id="FcG-uw-htC"/>
                             <constraint firstItem="N26-in-7Wy" firstAttribute="centerX" secondItem="grU-mY-Ng8" secondAttribute="centerX" id="GgK-c9-dvB"/>
                             <constraint firstAttribute="leadingMargin" secondItem="cEI-Et-t3R" secondAttribute="leading" id="LA5-Hz-4Yd"/>
+                            <constraint firstItem="88a-j0-oGI" firstAttribute="centerX" secondItem="grU-mY-Ng8" secondAttribute="centerX" id="bxR-uU-57c"/>
                             <constraint firstItem="cEI-Et-t3R" firstAttribute="top" secondItem="N26-in-7Wy" secondAttribute="bottom" constant="24" id="d6G-E3-1NH"/>
                             <constraint firstItem="N26-in-7Wy" firstAttribute="top" secondItem="xur-CB-PVq" secondAttribute="bottom" constant="30" id="gWZ-0M-r3U"/>
+                            <constraint firstItem="88a-j0-oGI" firstAttribute="centerY" secondItem="grU-mY-Ng8" secondAttribute="centerY" id="pdr-08-AHr"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -120,11 +141,11 @@
                                 <exclude reference="cEI-Et-t3R"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GgK-c9-dvB"/>
-                                <exclude reference="gWZ-0M-r3U"/>
                                 <exclude reference="FcG-uw-htC"/>
                                 <exclude reference="LA5-Hz-4Yd"/>
                                 <exclude reference="d6G-E3-1NH"/>
+                                <exclude reference="GgK-c9-dvB"/>
+                                <exclude reference="gWZ-0M-r3U"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -133,22 +154,23 @@
                                 <include reference="cEI-Et-t3R"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GgK-c9-dvB"/>
-                                <include reference="gWZ-0M-r3U"/>
                                 <include reference="FcG-uw-htC"/>
                                 <include reference="LA5-Hz-4Yd"/>
                                 <include reference="d6G-E3-1NH"/>
+                                <include reference="GgK-c9-dvB"/>
+                                <include reference="gWZ-0M-r3U"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="contentLabel" destination="cEI-Et-t3R" id="sq1-qh-RxQ"/>
                         <outlet property="imageView" destination="N26-in-7Wy" id="jY5-UE-cvl"/>
+                        <outlet property="spinner" destination="88a-j0-oGI" id="YU2-Zi-nqL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Knl-t2-BPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="991.5" y="341"/>
+            <point key="canvasLocation" x="778" y="339"/>
         </scene>
     </scenes>
 </document>
